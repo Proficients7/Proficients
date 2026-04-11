@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Faith K · Mixed Farm</title>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1e1e1e;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    :root {
+      --primary: #0C5021;
+      --accent: #74B743;
+      --secondary: #1D452B;
+      --white-pure: #ffffff;
+      --gray-light: #f5f7fa;
+      --gray-border: #e9edf2;
+      --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 20px 30px -8px rgba(0, 0, 0, 0.05), 0 8px 12px -4px rgba(0, 0, 0, 0.02);
+      --radius-card: 24px;
+      --radius-element: 40px;
+    }
+
+    .app {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+
+    /* header */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0 12px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      max-width: 380px;
+      width: 100%;
+    }
+
+    .logo svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .contact-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .contact-btn i {
+      font-size: 1rem;
+    }
+
+    .contact-btn:hover {
+      background: var(--secondary);
+      transform: scale(0.98);
+    }
+
+    /* hero */
+    .hero {
+      margin: 30px 0 50px;
+      padding: 50px 40px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 48px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(116, 183, 67, 0.15);
+      background-image: radial-gradient(circle at 100% 0%, rgba(116, 183, 67, 0.08) 0%, transparent 50%);
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #0a1f0e;
+      max-width: 700px;
+    }
+
+    .hero h1 i {
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 60px;
+      font-weight: 500;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(12, 80, 33, 0.1);
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      padding: 16px 32px;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-outline i {
+      color: #25D366;
+    }
+
+    .btn-primary:hover, .btn-outline:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* about split */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 60px 0;
+    }
+
+    .about-card {
+      background: var(--white-pure);
+      padding: 36px 32px;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-border);
+    }
+
+    .about-card h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .founded-badge {
+      background: var(--accent);
+      color: #0a2e12;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* services grid */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin: 60px 0 30px;
+      color: #152b1a;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 28px 20px;
+      border-radius: 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-border);
+      transition: all 0.25s;
+      text-align: center;
+    }
+
+    .service-card i {
+      font-size: 2.8rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .service-card h4 {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .service-card:hover {
+      transform: scale(1.02);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* gallery & filter */
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .search-box {
+      padding: 14px 20px;
+      border-radius: 60px;
+      border: 1px solid var(--gray-border);
+      background: white;
+      width: 260px;
+      font-size: 0.95rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-border);
+      transition: 0.15s;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: #eef3e6;
+    }
+
+    .gallery-content {
+      padding: 20px 18px;
+    }
+
+    .gallery-content h4 {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    /* admin panel */
+    .admin-section {
+      background: #fafdf8;
+      border-radius: 32px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px dashed var(--accent);
+    }
+
+    .admin-hidden {
+      display: none !important;
+    }
+
+    .preview-image {
+      max-width: 200px;
+      max-height: 140px;
+      border-radius: 18px;
+      margin: 12px 0;
+      object-fit: cover;
+    }
+
+    .toast-notification {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e2b1c;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 60px;
+      font-weight: 500;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: opacity 0.2s;
+    }
+
+    /* bottom navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 8px;
+      border-radius: 80px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(116, 183, 67, 0.2);
+      z-index: 99;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: none;
+      border: none;
+      font-size: 0.75rem;
+      color: #3b4e3a;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 60px;
+      transition: 0.15s;
+      cursor: pointer;
+    }
+
+    .nav-item i {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+
+    .nav-item.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* faq */
+    .faq-item {
+      background: white;
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 16px;
+      border: 1px solid var(--gray-border);
+    }
+
+    /* form */
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 40px;
+      border: 1px solid var(--gray-border);
+      margin-bottom: 16px;
+      font-family: inherit;
+    }
+
+    /* utilities */
+    .text-accent { color: var(--accent); }
+    .mt-4 { margin-top: 24px; }
+    .flex { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* responsive */
+    @media (max-width: 640px) {
+      .navbar { flex-wrap: wrap; gap: 12px; }
+      .logo { max-width: 100%; }
+      .hero h1 { font-size: 2.5rem; }
+      .about-split { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <!-- Header with SVG Logo (exactly as described: Faith K Mixed Farm + products + location) -->
+  <div class="navbar">
+    <div class="logo">
+      <svg viewBox="0 0 380 80" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto;">
+        <defs>
+          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0C5021"/>
+            <stop offset="100%" stop-color="#1D452B"/>
+          </linearGradient>
+        </defs>
+        <rect width="380" height="80" rx="16" fill="white" />
+        <text x="12" y="28" font-family="Inter, sans-serif" font-weight="700" font-size="22" fill="url(#logoGrad)" letter-spacing="-0.5">Faith K</text>
+        <text x="12" y="48" font-family="Inter, sans-serif" font-weight="600" font-size="14" fill="#0C5021">Mixed Farm</text>
+        <text x="12" y="66" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#3b5e3a">
+          Coffee | Eggs | Chicken | Pigs | Milk | Cattle
+        </text>
+        <text x="200" y="38" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#74B743">Busense, Masaka,</text>
+        <text x="200" y="54" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#74B743">Kyoto Road.</text>
+        <!-- subtle leaf accent -->
+        <path d="M350 22 Q360 10 368 20 Q372 28 362 36 Q354 42 350 34 Q346 28 350 22" fill="#74B743" opacity="0.6"/>
+        <circle cx="356" cy="28" r="4" fill="#0C5021" opacity="0.5"/>
+      </svg>
+    </div>
+    <button class="contact-btn" id="headerContactBtn"><i class="fas fa-phone-alt"></i> Contact</button>
+  </div>
+
+  <!-- Hero -->
+  <section id="homeSection" class="hero">
+    <h1><i class="fas fa-seedling"></i> Farming.<br>Quality You Can Trust.</h1>
+    <div class="hero-buttons">
+      <button class="btn-primary" id="exploreServicesBtn"><i class="fas fa-tractor"></i> Explore Services</button>
+      <button class="btn-outline" id="whatsappHeroBtn"><i class="fab fa-whatsapp"></i> WhatsApp Chat</button>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="aboutSection">
+    <div class="about-split">
+      <div class="about-card">
+        <div class="founded-badge"><i class="far fa-calendar-alt"></i> Founded 2012 – present</div>
+        <h3>Mission</h3>
+        <p style="font-size: 1.1rem; color: #2b3a28;">To cultivate sustainable, premium mixed farming with integrity — delivering fresh eggs, coffee, milk and livestock with care.</p>
+      </div>
+      <div class="about-card">
+        <h3>Vision</h3>
+        <p style="font-size: 1.1rem;">Become East Africa's most trusted regenerative farm, blending tradition and innovation on Kyotera Road.</p>
+        <div style="margin-top: 30px;"><i class="fas fa-map-pin" style="color: var(--accent);"></i> Busense, Kyotera Road, Uganda</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="servicesSection">
+    <h2 class="section-title"><i class="fas fa-hand-holding-heart" style="color: var(--accent);"></i> Our services</h2>
+    <div class="services-grid">
+      <div class="service-card"><i class="fas fa-mug-hot"></i><h4>Coffee farming</h4><p>Arabica & robusta</p></div>
+      <div class="service-card"><i class="fas fa-egg"></i><h4>Poultry</h4><p>Eggs & chicken</p></div>
+      <div class="service-card"><i class="fas fa-piggy-bank"></i><h4>Pig farming</h4><p>Heritage breeds</p></div>
+      <div class="service-card"><i class="fas fa-cow"></i><h4>Cattle farming</h4><p>Milk & beef</p></div>
+      <div class="service-card"><i class="fas fa-chalkboard-user"></i><h4>Agri consultation</h4><p>Expert advice</p></div>
+    </div>
+  </section>
+
+  <!-- Gallery & Articles -->
+  <section id="gallerySection">
+    <div class="gallery-header">
+      <h2 class="section-title" style="margin-bottom:0;">📸 Farm journal</h2>
+      <input type="text" id="searchGalleryInput" class="search-box" placeholder="🔍 Search articles...">
+    </div>
+    <div id="galleryContainer" class="gallery-grid"></div>
+  </section>
+
+  <!-- ADMIN PANEL (hidden by default) -->
+  <div id="adminPanel" class="admin-section admin-hidden">
+    <div style="display: flex; justify-content: space-between;">
+      <h3 style="color: var(--primary);"><i class="fas fa-lock"></i> Admin dashboard</h3>
+      <button id="logoutAdminBtn" class="btn-outline" style="padding: 8px 20px;">Logout</button>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+      <div>
+        <h4>➕ New gallery post</h4>
+        <input type="text" id="postTitle" placeholder="Title" style="width:100%; padding:14px; border-radius:40px; border:1px solid #ddd; margin:12px 0;"><br>
+        <input type="text" id="postDesc" placeholder="Description" style="width:100%; padding:14px; border-radius:40px; border:1px solid #ddd; margin-bottom:12px;"><br>
+        <input type="file" id="imageUpload" accept="image/*" style="margin:8px 0;"><br>
+        <img id="imagePreview" class="preview-image" src="" alt="preview" style="display:none;"><br>
+        <button id="addPostBtn" class="btn-primary" style="padding:12px 24px;"><i class="fas fa-cloud-upload-alt"></i> Publish post</button>
+      </div>
+      <div>
+        <h4>👥 Create admin 2</h4>
+        <input type="email" id="newAdminEmail" placeholder="Email" style="width:100%; padding:14px; border-radius:40px; margin:12px 0;"><br>
+        <input type="password" id="newAdminPass" placeholder="Password" style="width:100%; padding:14px; border-radius:40px; margin-bottom:12px;"><br>
+        <button id="createAdminBtn" class="btn-outline" style="background:white;"><i class="fas fa-user-plus"></i> Add admin</button>
+        <p style="margin-top:16px; font-size:0.9rem;">✔ Admin1: dedederrick4@gmail.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQs -->
+  <section id="faqSection">
+    <h2 class="section-title">❓ FAQs</h2>
+    <div class="faq-item"><strong>🥚 Do you deliver eggs?</strong> — Yes, within Masaka & Kampala.</div>
+    <div class="faq-item"><strong>🐄 Can I visit the farm?</strong> — By appointment, reach us on WhatsApp.</div>
+    <div class="faq-item"><strong>🌱 Organic practices?</strong> — We follow regenerative methods.</div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contactSection">
+    <h2 class="section-title">📞 Contact Us</h2>
+    <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+      <div style="flex:1;">
+        <div style="background: var(--gray-light); padding:24px; border-radius: 32px;">
+          <i class="fab fa-whatsapp" style="font-size:2rem; color:#25D366;"></i>
+          <h3>WhatsApp</h3>
+          <p>+256 772 308726</p>
+          <button id="whatsappContactBtn" class="btn-primary" style="margin-top:16px;"><i class="fab fa-whatsapp"></i> Chat now</button>
+        </div>
+      </div>
+      <div style="flex:2;">
+        <form id="contactForm" class="contact-form">
+          <input type="text" placeholder="Your name" id="contactName" required>
+          <textarea placeholder="Message" rows="3" id="contactMessage"></textarea>
+          <button type="submit" class="btn-outline" style="width:100%;"><i class="far fa-paper-plane"></i> Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <div style="height:20px;"></div>
+</div>
+
+<!-- Bottom navigation -->
+<div class="bottom-nav">
+  <button class="nav-item active" data-section="home"><i class="fas fa-home"></i><span>Home</span></button>
+  <button class="nav-item" data-section="services"><i class="fas fa-list"></i><span>Services</span></button>
+  <button class="nav-item" data-section="faq"><i class="fas fa-circle-question"></i><span>FAQs</span></button>
+  <button class="nav-item" data-section="contact"><i class="fas fa-address-card"></i><span>Contact</span></button>
+  <button class="nav-item" id="adminNavBtn" style="display:none;"><i class="fas fa-user-shield"></i><span>Admin</span></button>
+</div>
+
+<!-- hidden login modal trigger (floating) -->
+<div style="position:fixed; bottom:100px; right:20px; z-index:90;">
+  <button id="showLoginBtn" style="background:white; border:1px solid var(--primary); border-radius:60px; padding:10px 16px; box-shadow:var(--shadow-sm);"><i class="fas fa-sign-in-alt"></i> Admin</button>
+</div>
+
+<!-- Simple login modal -->
+<div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); backdrop-filter:blur(4px); align-items:center; justify-content:center; z-index:1000;">
+  <div style="background:white; padding:32px; border-radius:48px; width:90%; max-width:400px;">
+    <h3>Admin access</h3>
+    <input type="email" id="loginEmail" placeholder="Email" style="width:100%; padding:16px; margin:16px 0; border-radius:60px; border:1px solid #ddd;"><br>
+    <input type="password" id="loginPassword" placeholder="Password" style="width:100%; padding:16px; margin-bottom:24px; border-radius:60px; border:1px solid #ddd;"><br>
+    <button id="loginSubmit" class="btn-primary" style="width:100%;">Sign in</button>
+    <button id="closeModalBtn" style="margin-top:12px; background:none; border:none; color:gray;">Cancel</button>
+  </div>
+</div>
+
+<script>
+  (function(){
+    "use strict";
+
+    // ---------- DATA ----------
+    let posts = [];
+    let admins = [];
+    let currentAdmin = null; // {email}
+
+    // Default admin1
+    const DEFAULT_ADMIN = { email: 'dedederrick4@gmail.com', password: 'Dede@1927' };
+
+    // localStorage init
+    function loadData() {
+      const storedPosts = localStorage.getItem('faithk_posts');
+      if(storedPosts) posts = JSON.parse(storedPosts);
+      else {
+        posts = [
+          { id: '1', title: 'Coffee harvest 2025', desc: 'First Robusta flush at Busense.', image: 'https://picsum.photos/id/30/400/300' },
+          { id: '2', title: 'Free-range layers', desc: 'Happy hens, golden yolks.', image: 'https://picsum.photos/id/50/400/300' },
+          { id: '3', title: 'Piglets arrived', desc: 'New Large White litter.', image: 'https://picsum.photos/id/65/400/300' },
+        ];
+      }
+
+      const storedAdmins = localStorage.getItem('faithk_admins');
+      if(storedAdmins) admins = JSON.parse(storedAdmins);
+      else {
+        admins = [ DEFAULT_ADMIN ];
+        localStorage.setItem('faithk_admins', JSON.stringify(admins));
+      }
+
+      // session
+      const session = localStorage.getItem('faithk_session');
+      if(session) {
+        try { currentAdmin = JSON.parse(session); } catch(e){}
+      }
+    }
+    function savePosts() { localStorage.setItem('faithk_posts', JSON.stringify(posts)); }
+    function saveAdmins() { localStorage.setItem('faithk_admins', JSON.stringify(admins)); }
+    function saveSession(admin) { 
+      currentAdmin = admin;
+      localStorage.setItem('faithk_session', JSON.stringify(admin)); 
+    }
+    function clearSession() { 
+      currentAdmin = null; 
+      localStorage.removeItem('faithk_session'); 
+    }
+
+    loadData();
+
+    // ---------- RENDER GALLERY ----------
+    const galleryContainer = document.getElementById('galleryContainer');
+    const searchInput = document.getElementById('searchGalleryInput');
+
+    function renderGallery(filterText = '') {
+      const filtered = posts.filter(p => 
+        p.title.toLowerCase().includes(filterText.toLowerCase()) || 
+        p.desc.toLowerCase().includes(filterText.toLowerCase())
+      );
+      if(!galleryContainer) return;
+      galleryContainer.innerHTML = filtered.map(post => `
+        <div class="gallery-item">
+          <img src="${post.image}" alt="${post.title}" loading="lazy">
+          <div class="gallery-content">
+            <h4>${post.title}</h4>
+            <p>${post.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+    renderGallery();
+    if(searchInput) searchInput.addEventListener('input', (e) => renderGallery(e.target.value));
+
+    // ---------- NOTIFICATION ----------
+    function showToast(msg, isError = false) {
+      const toast = document.createElement('div');
+      toast.className = 'toast-notification';
+      toast.style.background = isError ? '#b00020' : '#1e2b1c';
+      toast.textContent = msg;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    // ---------- ADMIN UI TOGGLE ----------
+    const adminPanel = document.getElementById('adminPanel');
+    const adminNavBtn = document.getElementById('adminNavBtn');
+    function updateAdminUI() {
+      const loggedIn = !!currentAdmin;
+      if(adminPanel) {
+        if(loggedIn) adminPanel.classList.remove('admin-hidden');
+        else adminPanel.classList.add('admin-hidden');
+      }
+      if(adminNavBtn) {
+        adminNavBtn.style.display = loggedIn ? 'flex' : 'none';
+      }
+    }
+    updateAdminUI();
+
+    // ---------- LOGIN ----------
+    const modal = document.getElementById('loginModal');
+    const showLogin = document.getElementById('showLoginBtn');
+    const closeModal = document.getElementById('closeModalBtn');
+    const loginSubmit = document.getElementById('loginSubmit');
+    const loginEmail = document.getElementById('loginEmail');
+    const loginPassword = document.getElementById('loginPassword');
+
+    showLogin.addEventListener('click', ()=> modal.style.display='flex');
+    closeModal.addEventListener('click', ()=> modal.style.display='none');
+    loginSubmit.addEventListener('click', ()=>{
+      const email = loginEmail.value.trim();
+      const pass = loginPassword.value;
+      const admin = admins.find(a => a.email === email && a.password === pass);
+      if(admin) {
+        saveSession({ email: admin.email });
+        updateAdminUI();
+        modal.style.display = 'none';
+        showToast(`Welcome, ${admin.email}`);
+        loginEmail.value = loginPassword.value = '';
+      } else {
+        showToast('Invalid credentials', true);
+      }
+    });
+
+    // logout
+    document.getElementById('logoutAdminBtn').addEventListener('click', ()=>{
+      clearSession();
+      updateAdminUI();
+      showToast('Logged out');
+    });
+
+    // Admin create admin2
+    document.getElementById('createAdminBtn').addEventListener('click', ()=>{
+      if(!currentAdmin) { showToast('Unauthorized', true); return; }
+      const newEmail = document.getElementById('newAdminEmail').value.trim();
+      const newPass = document.getElementById('newAdminPass').value;
+      if(!newEmail || !newPass) { showToast('Fill both fields', true); return; }
+      if(admins.find(a => a.email === newEmail)) { showToast('Admin already exists', true); return; }
+      admins.push({ email: newEmail, password: newPass });
+      saveAdmins();
+      showToast(`Admin ${newEmail} created`);
+      document.getElementById('newAdminEmail').value = '';
+      document.getElementById('newAdminPass').value = '';
+    });
+
+    // Add post with image preview & store
+    const imageUpload = document.getElementById('imageUpload');
+    const imagePreview = document.getElementById('imagePreview');
+    const postTitle = document.getElementById('postTitle');
+    const postDesc = document.getElementById('postDesc');
+
+    imageUpload.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if(file) {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          imagePreview.src = ev.target.result;
+          imagePreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else imagePreview.style.display = 'none';
+    });
+
+    document.getElementById('addPostBtn').addEventListener('click', ()=>{
+      if(!currentAdmin) { showToast('Admin only', true); return; }
+      const title = postTitle.value.trim();
+      const desc = postDesc.value.trim();
+      const file = imageUpload.files[0];
+      if(!title || !desc) { showToast('Title & description required', true); return; }
+      
+      let imageUrl = 'https://picsum.photos/400/300?random='+Date.now();
+      if(file) {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          const newPost = {
+            id: Date.now()+''+Math.random(),
+            title, desc,
+            image: ev.target.result
+          };
+          posts.push(newPost);
+          savePosts();
+          renderGallery(searchInput.value);
+          showToast('Post published');
+          postTitle.value = postDesc.value = '';
+          imageUpload.value = '';
+          imagePreview.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        const newPost = { id: Date.now()+'', title, desc, image: imageUrl };
+        posts.push(newPost);
+        savePosts();
+        renderGallery(searchInput.value);
+        showToast('Post published (placeholder image)');
+        postTitle.value = postDesc.value = '';
+      }
+    });
+
+    // ---------- BOTTOM NAV & SMOOTH SCROLL ----------
+    const sections = {
+      home: document.getElementById('homeSection'),
+      services: document.getElementById('servicesSection'),
+      faq: document.getElementById('faqSection'),
+      contact: document.getElementById('contactSection')
+    };
+    const navItems = document.querySelectorAll('.nav-item');
+    function setActive(sectionId) {
+      navItems.forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.dataset.section === sectionId) btn.classList.add('active');
+      });
+      const target = sections[sectionId];
+      if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    navItems.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const section = btn.dataset.section;
+        if(section && section !== 'admin') setActive(section);
+        if(section === 'admin') {
+          if(currentAdmin) adminPanel.scrollIntoView({behavior:'smooth'});
+          else showToast('Please login as admin', true);
+        }
+      });
+    });
+
+    // extra nav: header contact, explore, etc
+    document.getElementById('headerContactBtn').addEventListener('click', ()=> setActive('contact'));
+    document.getElementById('exploreServicesBtn').addEventListener('click', ()=> setActive('services'));
+    document.querySelectorAll('#whatsappHeroBtn, #whatsappContactBtn').forEach(b => {
+      b.addEventListener('click', ()=> window.open('https://wa.me/256772308726?text=Hello%20Faith%20K%20Farm', '_blank'));
+    });
+
+    // Contact form dummy
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      showToast('Message sent (demo) 📬');
+      document.getElementById('contactName').value = '';
+      document.getElementById('contactMessage').value = '';
+    });
+
+    // admin nav click
+    adminNavBtn.addEventListener('click', ()=>{
+      if(currentAdmin) adminPanel.scrollIntoView({behavior:'smooth'});
+    });
+
+    // Hide login modal on outside click
+    window.addEventListener('click', (e) => {
+      if(e.target === modal) modal.style.display = 'none';
+    });
+
+    console.log('✅ Faith K Mixed Farm — premium experience with logo');
+  })();
+</script>
+</body>
+</html>
